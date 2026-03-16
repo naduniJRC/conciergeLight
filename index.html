@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ConciergeAI - AI-Powered Revenue Engine for Salons &amp; Spas</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#7c0df2",
+          "primary-vibrant": "#9d4dff",
+          "accent-pink": "#d900d9",
+          "accent-teal": "#00b5bd",
+          "background-light": "#FFFFFF",
+          "card-light": "#f8fafc",
+        },
+        fontFamily: { "display": ["Inter", "sans-serif"] },
+        borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "2xl": "2rem", "full": "9999px"},
+        boxShadow: {
+          'neon-indigo': '0 0 15px rgba(124, 13, 242, 0.2)',
+          'neon-pink': '0 0 15px rgba(255, 0, 255, 0.2)',
+          'neon-teal': '0 0 15px rgba(0, 245, 255, 0.2)',
+        }
+      },
+    },
+  }
+</script>
+<style>
+  @keyframes gradient { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+  .animate-gradient { animation: gradient 4s ease infinite; }
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+  .animate-float { animation: float 4s ease-in-out infinite; }
+  @keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+  .animate-ticker { animation: ticker 28s linear infinite; }
+  .neon-border { position: relative; }
+  .neon-border::after { content:''; position:absolute; inset:-1px; background:linear-gradient(45deg,#7c0df2,#ff00ff,#00f5ff); z-index:-1; border-radius:inherit; opacity:0.15; }
+  .testimonial-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+  .testimonial-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(124,13,242,0.08); }
+  .flag-img {
+    width: 28px;
+    height: 20px;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+    flex-shrink: 0;
+  }
+</style>
+</head>
+<body class="font-display bg-white text-slate-900 selection:bg-primary-vibrant/20">
+
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/80 backdrop-blur-xl">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="size-10 bg-gradient-to-tr from-primary to-primary-vibrant rounded-lg flex items-center justify-center text-white shadow-neon-indigo">
+        <span class="material-symbols-outlined text-2xl">rocket_launch</span>
+      </div>
+      <h2 class="text-xl font-extrabold tracking-tight text-slate-900">ConciergeAI</h2>
+    </div>
+    <nav class="hidden md:flex items-center gap-8">
+      <a class="text-sm font-bold text-slate-600 hover:text-primary transition-colors" href="#features">Features</a>
+      <a class="text-sm font-bold text-slate-600 hover:text-primary transition-colors" href="#solutions">Solutions</a>
+      <a class="text-sm font-bold text-slate-600 hover:text-primary transition-colors" href="#pricing">Pricing</a>
+      <a class="text-sm font-bold text-slate-600 hover:text-primary transition-colors" href="#how-it-works">How it works</a>
+    </nav>
+    <div class="flex items-center gap-4">
+      <button class="hidden sm:block text-sm font-bold text-slate-700 px-4 py-2 hover:text-primary transition-all">Login</button>
+      <button class="bg-primary text-white text-sm font-bold px-6 py-2.5 rounded-xl hover:shadow-neon-indigo hover:-translate-y-0.5 transition-all">Get Started Free</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- Hero Section -->
+<section class="relative overflow-hidden pt-20 pb-28 px-6 bg-white">
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[800px] bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent -z-10"></div>
+  <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+    <div class="flex flex-col gap-8">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/5 text-primary text-xs font-bold uppercase tracking-widest w-fit border border-primary/20">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+        </span> Next-gen booking for every service business
+      </div>
+      <h1 class="text-5xl lg:text-7xl font-black leading-[1.05] tracking-tight text-slate-900">Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-vibrant to-accent-pink bg-[length:200%_auto] animate-gradient">AI Revenue</span> Engine</h1>
+      <p class="text-xl text-slate-600 max-w-xl leading-relaxed">The world's first 'Zero-to-Automated' platform for every service business on earth. Find, book, and retain clients autonomously—no website or tech skills required. Go live in 60 seconds.</p>
+      <div class="flex flex-row items-center gap-4 pt-4">
+        <button class="py-3 px-8 bg-primary text-white rounded-xl font-bold text-base hover:scale-105 transition-transform shadow-lg shadow-primary/20 w-fit">Start Free Trial</button>
+        <button class="py-3 px-8 bg-white border border-slate-200 rounded-xl font-bold text-base hover:bg-slate-50 transition-colors flex items-center justify-center gap-2 w-fit text-slate-900">
+          <span class="material-symbols-outlined text-primary">play_circle</span> Watch Demo
+        </button>
+      </div>
+      
+    </div>
+    <!-- Chat UI Mockup -->
+    <div class="relative group">
+      <div class="absolute -inset-1 bg-gradient-to-r from-primary via-accent-pink to-accent-teal rounded-[2.5rem] blur opacity-10 group-hover:opacity-30 transition duration-1000"></div>
+      <div class="relative bg-white rounded-[2rem] shadow-2xl border border-slate-100 p-4 max-w-md mx-auto w-full animate-float">
+        <div class="bg-gradient-to-r from-primary to-indigo-700 p-5 rounded-t-2xl flex items-center gap-4 text-white">
+          <div class="size-11 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-md border border-white/30">
+            <span class="material-symbols-outlined">support_agent</span>
+          </div>
+          <div>
+            <p class="font-bold">Concierge AI</p>
+            <div class="flex items-center gap-1.5">
+              <span class="size-1.5 bg-emerald-400 rounded-full animate-pulse"></span>
+              <p class="text-xs font-medium opacity-90 tracking-wide">AI Online</p>
+            </div>
+          </div>
+          
+        </div>
+        <div class="p-6 flex flex-col gap-4">
+          <div class="bg-slate-100 p-4 rounded-2xl rounded-tl-none self-start max-w-[85%] text-sm font-medium leading-relaxed text-slate-700">
+            Hi Sarah! I'd love to help you book a hair color appoinment. We have 3 slots open tomorrow.
+          </div>
+          <div class="bg-primary text-white p-4 rounded-2xl rounded-tr-none self-end max-w-[85%] text-sm font-medium shadow-lg shadow-primary/10 leading-relaxed">
+            Tomorrow at 2:00 PM works best!
+          </div>
+          <div class="bg-slate-100 p-4 rounded-2xl rounded-tl-none self-start max-w-[85%] text-sm font-medium leading-relaxed text-slate-700">
+            Perfect! You're booked with Jessica at 2:00 PM. Confirmation sent to your email. See you then! ✨
+          </div>
+          <!-- Upsell suggestion bubble — extended feature -->
+          <div class="bg-gradient-to-r from-primary/5 to-accent-pink/5 border border-primary/10 p-3 rounded-2xl rounded-tl-none self-start max-w-[90%] text-xs font-medium leading-relaxed text-slate-600 flex items-start gap-2">
+            <span class="material-symbols-outlined text-primary text-sm mt-0.5">auto_awesome</span>
+            <span><b class="text-primary">Add-on suggestion:</b> Would you like a glossing treatment for +$35? 4.9★ rated by 120 clients.</span>
+          </div>
+          <div class="mt-4 border-t border-slate-100 pt-5 flex gap-3">
+            <div class="h-12 flex-1 bg-slate-50 rounded-xl px-4 flex items-center text-slate-400 text-sm italic border border-slate-100">Type a message...</div>
+            <div class="size-12 bg-primary-vibrant rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary/20">
+              <span class="material-symbols-outlined">send</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Problem Section -->
+<section class="py-24 bg-slate-100">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="mb-20 text-center">
+      <h2 class="text-4xl md:text-5xl font-black mb-6 tracking-tight text-slate-900">The Market Most Software Forgot</h2>
+      <p class="text-lg text-slate-600 max-w-2xl mx-auto">Traditional booking tools are just digital calendars. ConciergeAI is a revenue growth machine.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="p-10 rounded-3xl bg-white border border-slate-200 flex flex-col gap-6 group hover:border-primary transition-all hover:-translate-y-2 hover:shadow-xl">
+        <div class="size-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
+          <span class="material-symbols-outlined text-3xl font-bold">call_missed</span>
+        </div>
+        <h3 class="text-2xl font-bold text-slate-900">Missed Calls</h3>
+        <div class="text-6xl font-black text-primary tracking-tighter">62%</div>
+        <p class="text-slate-500 font-medium leading-relaxed">of calls to local businesses go unanswered during peak hours.</p>
+      </div>
+      <div class="p-10 rounded-3xl bg-white border border-slate-200 flex flex-col gap-6 group hover:border-accent-pink transition-all hover:-translate-y-2 hover:shadow-xl">
+        <div class="size-14 rounded-2xl bg-accent-pink/10 flex items-center justify-center text-accent-pink group-hover:bg-accent-pink group-hover:text-white transition-all">
+          <span class="material-symbols-outlined text-3xl font-bold">payments</span>
+        </div>
+        <h3 class="text-2xl font-bold text-slate-900">Revenue Loss</h3>
+        <div class="text-6xl font-black text-accent-pink tracking-tighter">25%</div>
+        <p class="text-slate-500 font-medium leading-relaxed">average revenue leak due to friction in booking processes.</p>
+      </div>
+      <div class="p-10 rounded-3xl bg-white border border-slate-200 flex flex-col gap-6 group hover:border-accent-teal transition-all hover:-translate-y-2 hover:shadow-xl">
+        <div class="size-14 rounded-2xl bg-accent-teal/10 flex items-center justify-center text-accent-teal group-hover:bg-accent-teal group-hover:text-white transition-all">
+          <span class="material-symbols-outlined text-3xl font-bold">timer</span>
+        </div>
+        <h3 class="text-2xl font-bold text-slate-900">Manual Work</h3>
+        <div class="text-6xl font-black text-accent-teal tracking-tighter">15 hrs</div>
+        <p class="text-slate-500 font-medium leading-relaxed">spent per week on admin and manual customer follow-ups.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why ConciergeAI -->
+<section class="py-24 px-6 relative overflow-hidden bg-white" id="features">
+  <div class="absolute inset-0 bg-primary/[0.02] -z-10"></div>
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-20 text-center">
+      <h2 class="text-4xl md:text-5xl font-black mb-6 tracking-tight text-slate-900">Why ConciergeAI?</h2>
+      <p class="text-lg text-slate-600">Powering the next generation of service experiences.</p>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="group bg-slate-100 border border-slate-100 p-10 rounded-[2rem] hover:bg-white hover:border-primary/30 transition-all hover:shadow-xl">
+        <div class="size-14 rounded-2xl bg-gradient-to-tr from-primary to-primary-vibrant flex items-center justify-center text-white mb-8 shadow-lg shadow-primary/20 group-hover:scale-110 transition-transform">
+          <span class="material-symbols-outlined text-2xl">bolt</span>
+        </div>
+        <h4 class="text-xl font-bold mb-3 text-slate-900">Instant Response</h4>
+        <p class="text-sm text-slate-600 leading-relaxed font-medium">0.5s response time across WhatsApp, SMS, and Web interfaces.</p>
+      </div>
+      <div class="group bg-slate-100 border border-slate-100 p-10 rounded-[2rem] hover:bg-white hover:border-accent-teal/30 transition-all hover:shadow-xl">
+        <div class="size-14 rounded-2xl bg-gradient-to-tr from-accent-teal to-emerald-500 flex items-center justify-center text-white mb-8 shadow-lg shadow-accent-teal/20 group-hover:scale-110 transition-transform">
+          <span class="material-symbols-outlined text-2xl">language</span>
+        </div>
+        <h4 class="text-xl font-bold mb-3 text-slate-900">Multilingual</h4>
+        <p class="text-sm text-slate-600 leading-relaxed font-medium">Speak to your customers in 50+ languages natively with perfect grammar.</p>
+      </div>
+      <div class="group bg-slate-100 border border-slate-100 p-10 rounded-[2rem] hover:bg-white hover:border-primary/30 transition-all hover:shadow-xl">
+        <div class="size-14 rounded-2xl bg-gradient-to-tr from-indigo-500 to-primary flex items-center justify-center text-white mb-8 shadow-lg shadow-primary/20 group-hover:scale-110 transition-transform">
+          <span class="material-symbols-outlined text-2xl">magic_button</span>
+        </div>
+        <h4 class="text-xl font-bold mb-3 text-slate-900">Zero-Presence</h4>
+        <p class="text-sm text-slate-600 leading-relaxed font-medium">Go live in 60s via WhatsApp. No website, social presence, or technical knowledge required.</p>
+      </div>
+      <div class="group bg-slate-100 border border-slate-100 p-10 rounded-[2rem] hover:bg-white hover:border-accent-pink/30 transition-all hover:shadow-xl">
+        <div class="size-14 rounded-2xl bg-gradient-to-tr from-accent-pink to-rose-500 flex items-center justify-center text-white mb-8 shadow-lg shadow-accent-pink/20 group-hover:scale-110 transition-transform">
+          <span class="material-symbols-outlined text-2xl">trending_up</span>
+        </div>
+        <h4 class="text-xl font-bold mb-3 text-slate-900">Active Upselling</h4>
+        <p class="text-sm text-slate-600 leading-relaxed font-medium">AI suggests high-margin add-ons during the booking process automatically.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How It Works -->
+<section class="py-24 bg-white border-y border-slate-100 overflow-hidden" id="how-it-works">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="mb-20 text-center">
+      <h2 class="text-4xl md:text-5xl font-black mb-6 text-slate-900">Launch in 60 Seconds</h2>
+      <p class="text-slate-600 text-lg">The fastest onboarding in the service industry.</p>
+    </div>
+    <div class="relative">
+      <div class="hidden lg:block absolute top-10 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-slate-300 to-transparent -translate-y-1/2"></div>
+      <div class="grid lg:grid-cols-4 gap-12 relative">
+        <div class="flex flex-col items-center text-center gap-6 group">
+          <div class="size-20 rounded-full bg-white flex items-center justify-center text-2xl font-black border-4 border-slate-200 group-hover:border-primary group-hover:text-primary transition-all duration-500 text-slate-400 shadow-sm relative z-10">1</div>
+          <h5 class="text-xl font-bold text-slate-900">Connect Data</h5>
+          <p class="text-sm text-slate-500 px-4 leading-relaxed font-medium">Sync your existing calendar and service list instantly.</p>
+        </div>
+        <div class="flex flex-col items-center text-center gap-6 group">
+          <div class="size-20 rounded-full bg-white flex items-center justify-center text-2xl font-black border-4 border-slate-200 group-hover:border-accent-pink group-hover:text-accent-pink transition-all duration-500 text-slate-400 shadow-sm relative z-10">2</div>
+          <h5 class="text-xl font-bold text-slate-900">Train AI</h5>
+          <p class="text-sm text-slate-500 px-4 leading-relaxed font-medium">Our AI reads your website to learn your brand's unique voice.</p>
+        </div>
+        <div class="flex flex-col items-center text-center gap-6 group">
+          <div class="size-20 rounded-full bg-white flex items-center justify-center text-2xl font-black border-4 border-slate-200 group-hover:border-accent-teal group-hover:text-accent-teal transition-all duration-500 text-slate-400 shadow-sm relative z-10">3</div>
+          <h5 class="text-xl font-bold text-slate-900">Go Live</h5>
+          <p class="text-sm text-slate-500 px-4 leading-relaxed font-medium">Enable the AI on WhatsApp, Instagram, or your Website.</p>
+        </div>
+        <div class="flex flex-col items-center text-center gap-6 group">
+          <div class="size-20 rounded-full bg-white flex items-center justify-center text-2xl font-black border-4 border-slate-200 group-hover:border-primary-vibrant group-hover:text-primary-vibrant transition-all duration-500 text-slate-400 shadow-sm relative z-10">4</div>
+          <h5 class="text-xl font-bold text-slate-900">Scale Revenue</h5>
+          <p class="text-sm text-slate-500 px-4 leading-relaxed font-medium">Watch your calendar fill up while you sleep or work.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI Agents Section -->
+<section class="py-24 px-6 bg-slate-50">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+      <div class="max-w-xl">
+        <h2 class="text-4xl md:text-5xl font-black mb-6 tracking-tight text-slate-900">Your Dedicated AI Workforce</h2>
+        <p class="text-lg text-slate-600">Three specialized agents working 24/7 to grow your business.</p>
+      </div>
+      
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="relative bg-white border border-slate-200 p-10 rounded-[2.5rem] group hover:border-primary/50 transition-all overflow-hidden hover:shadow-2xl">
+        <div class="absolute -right-10 -top-10 size-40 bg-primary/5 rounded-full blur-3xl"></div>
+        <div class="size-20 bg-gradient-to-tr from-primary to-indigo-600 rounded-3xl flex items-center justify-center mb-8 relative rotate-3 group-hover:rotate-0 transition-transform">
+          <span class="material-symbols-outlined text-4xl text-white">smart_toy</span>
+        </div>
+        <h3 class="text-2xl font-black mb-4 text-slate-900">Concierge Agent</h3>
+        <p class="text-slate-600 mb-8 font-medium leading-relaxed">Handles all inbound inquiries, books appointments, and answers service questions instantly.</p>
+        <ul class="space-y-4 mb-8">
+          <li class="flex items-center gap-3 text-sm font-bold text-slate-700"><span class="material-symbols-outlined text-primary font-black">check_circle</span> 24/7 Booking</li>
+          <li class="flex items-center gap-3 text-sm font-bold text-slate-700"><span class="material-symbols-outlined text-primary font-black">check_circle</span> Instant Q&amp;A</li>
+          <li class="flex items-center gap-3 text-sm font-bold text-slate-700"><span class="material-symbols-outlined text-primary font-black">check_circle</span> Multi-channel</li>
+        </ul>
+      </div>
+      <div class="relative bg-white border border-slate-200 p-10 rounded-[2.5rem] group hover:border-accent-pink/50 transition-all overflow-hidden hover:shadow-2xl">
+        <div class="absolute -right-10 -top-10 size-40 bg-accent-pink/5 rounded-full blur-3xl"></div>
+        <div class="size-20 bg-gradient-to-tr from-accent-pink to-rose-600 rounded-3xl flex items-center justify-center mb-8 relative -rotate-3 group-hover:rotate-0 transition-transform">
+          <span class="material-symbols-outlined text-4xl text-white">history_toggle_off</span>
+        </div>
+        <h3 class="text-2xl font-black mb-4 text-slate-900">Recall Agent</h3>
+        <p class="text-slate-600 mb-8 font-medium leading-relaxed">Analyzes customer history to re-engage past clients with personalized offers at the perfect time.</p>
+        <ul class="space-y-4 mb-8">
+          <li class="flex items-center gap-3 text-sm font-bold text-slate-700"><span class="material-symbols-outlined text-accent-pink font-black">check_circle</span> Automated Reactivations</li>
+          <li class="flex items-center gap-3 text-sm font-bold text-slate-700"><span class="material-symbols-outlined text-accent-pink font-black">check_circle</span> Personal Outreach</li>
+          <li class="flex items-center gap-3 text-sm font-bold text-slate-700"><span class="material-symbols-outlined text-accent-pink font-black">check_circle</span> Data-Driven Timing</li>
+        </ul>
+      </div>
+      <div class="relative bg-white border border-slate-200 p-10 rounded-[2.5rem] group hover:border-accent-teal/50 transition-all overflow-hidden hover:shadow-2xl">
+        <div class="absolute -right-10 -top-10 size-40 bg-accent-teal/5 rounded-full blur-3xl"></div>
+        <div class="size-20 bg-gradient-to-tr from-accent-teal to-emerald-600 rounded-3xl flex items-center justify-center mb-8 relative rotate-6 group-hover:rotate-0 transition-transform">
+          <span class="material-symbols-outlined text-4xl text-white">ads_click</span>
+        </div>
+        <h3 class="text-2xl font-black mb-4 text-slate-900">Acquisition Agent</h3>
+        <p class="text-slate-600 mb-8 font-medium leading-relaxed">Turns leads from social media and local search into confirmed bookings using smart nurturing.</p>
+        <ul class="space-y-4 mb-8">
+          <li class="flex items-center gap-3 text-sm font-bold text-slate-700"><span class="material-symbols-outlined text-accent-teal font-black">check_circle</span> Social DM Triage</li>
+          <li class="flex items-center gap-3 text-sm font-bold text-slate-700"><span class="material-symbols-outlined text-accent-teal font-black">check_circle</span> Lead Qualification</li>
+          <li class="flex items-center gap-3 text-sm font-bold text-slate-700"><span class="material-symbols-outlined text-accent-teal font-black">check_circle</span> Seamless Transition</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Intelligence Layer -->
+<section class="py-24 bg-gradient-to-b from-slate-50 to-white px-6">
+  <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+    <div class="lg:w-1/2 space-y-8">
+      <h2 class="text-4xl md:text-5xl font-black tracking-tight leading-tight text-slate-900">The Intelligence Layer</h2>
+      <p class="text-xl text-slate-600 leading-relaxed font-medium">ConciergeAI doesn't just talk; it thinks. It monitors your business pulse to optimize every hour of your workday.</p>
+      <div class="space-y-6">
+        <div class="bg-white p-6 rounded-2xl border border-slate-100 flex items-center gap-5 transform hover:-translate-x-2 transition-transform shadow-lg shadow-slate-200/50">
+          <div class="size-12 rounded-full bg-accent-teal/10 text-accent-teal flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined font-black">notification_important</span>
+          </div>
+          <p class="text-sm md:text-base font-bold text-slate-800">"Three empty slots tomorrow afternoon. Should I reach out to last month's highlights clients?"</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl border border-slate-100 flex items-center gap-5 transform hover:-translate-x-2 transition-transform shadow-lg shadow-slate-200/50">
+          <div class="size-12 rounded-full bg-primary/10 text-primary-vibrant flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined font-black">analytics</span>
+          </div>
+          <p class="text-sm md:text-base font-bold text-slate-800">"Insight: You're losing 15% revenue on Tuesdays. Let's run a 'Mid-Week Special' promo."</p>
+        </div>
+      </div>
+    </div>
+    <div class="lg:w-1/2 w-full">
+      <div class="relative group">
+        <div class="absolute -inset-1 bg-gradient-to-br from-primary via-accent-pink to-accent-teal rounded-[2rem] blur-lg opacity-10"></div>
+        <div class="relative bg-white rounded-[2rem] p-10 border border-slate-100 shadow-2xl">
+          <div class="space-y-8">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-6">
+              <h4 class="text-xl font-black text-slate-900">Live AI Activity</h4>
+              <div class="flex items-center gap-2 px-3 py-1 bg-accent-pink/10 rounded-full">
+                <span class="size-2 bg-accent-pink rounded-full animate-pulse"></span>
+                <span class="text-[10px] text-accent-pink font-black tracking-widest uppercase">Streaming</span>
+              </div>
+            </div>
+            <div class="space-y-6">
+              <div class="flex gap-5 items-start">
+                <div class="size-10 bg-slate-100 rounded-xl shrink-0 flex items-center justify-center">
+                  <span class="material-symbols-outlined text-slate-400 text-sm">person</span>
+                </div>
+                <div class="space-y-1">
+                  <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">2 mins ago</p>
+                  <p class="text-sm font-medium leading-relaxed text-slate-700"><b>Recall Agent</b> sent re-engagement text to <b>Emily R.</b></p>
+                </div>
+              </div>
+              <div class="flex gap-5 items-start">
+                <div class="size-10 bg-primary/10 rounded-xl shrink-0 flex items-center justify-center text-primary">
+                  <span class="material-symbols-outlined text-xl">verified</span>
+                </div>
+                <div class="space-y-1">
+                  <p class="text-[10px] text-primary font-bold uppercase tracking-wider">Just now</p>
+                  <p class="text-sm font-medium leading-relaxed text-slate-700"><b>Concierge Agent</b> booked <b>Marcus T.</b> for 4:00 PM today.</p>
+                </div>
+              </div>
+             
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Multilingual / Global -->
+
+<section class="py-24 overflow-hidden px-6 bg-white">
+  <div class="max-w-7xl mx-auto text-center">
+    <h2 class="text-4xl md:text-5xl font-black mb-16 tracking-tight text-slate-900">Global Business, Local Voice</h2>
+    <div class="flex flex-wrap justify-center gap-4">
+
+      <div class="px-6 py-3.5 bg-white border border-slate-200 rounded-2xl shadow-sm flex items-center gap-3 hover:border-primary transition-colors cursor-default group">
+        <img class="flag-img" src="https://flagcdn.com/w40/us.png" alt="US flag"/>
+        <span class="font-black text-slate-600 group-hover:text-slate-900">English</span>
+      </div>
+
+      <div class="px-6 py-3.5 bg-white border border-slate-200 rounded-2xl shadow-sm flex items-center gap-3 hover:border-accent-pink transition-colors cursor-default group">
+        <img class="flag-img" src="https://flagcdn.com/w40/es.png" alt="Spain flag"/>
+        <span class="font-black text-slate-600 group-hover:text-slate-900">Español</span>
+      </div>
+
+      <div class="px-6 py-3.5 bg-white border border-slate-200 rounded-2xl shadow-sm flex items-center gap-3 hover:border-primary transition-colors cursor-default group">
+        <img class="flag-img" src="https://flagcdn.com/w40/fr.png" alt="France flag"/>
+        <span class="font-black text-slate-600 group-hover:text-slate-900">Français</span>
+      </div>
+
+      <div class="px-6 py-3.5 bg-white border border-slate-200 rounded-2xl shadow-sm flex items-center gap-3 hover:border-accent-teal transition-colors cursor-default group">
+        <img class="flag-img" src="https://flagcdn.com/w40/ae.png" alt="UAE flag"/>
+        <span class="font-black text-slate-600 group-hover:text-slate-900">العربية</span>
+      </div>
+
+      <div class="px-6 py-3.5 bg-white border border-slate-200 rounded-2xl shadow-sm flex items-center gap-3 hover:border-orange-500 transition-colors cursor-default group">
+        <img class="flag-img" src="https://flagcdn.com/w40/de.png" alt="Germany flag"/>
+        <span class="font-black text-slate-600 group-hover:text-slate-900">Deutsch</span>
+      </div>
+
+      <div class="px-6 py-3.5 bg-white border border-slate-200 rounded-2xl shadow-sm flex items-center gap-3 hover:border-purple-500 transition-colors cursor-default group">
+        <img class="flag-img" src="https://flagcdn.com/w40/jp.png" alt="Japan flag"/>
+        <span class="font-black text-slate-600 group-hover:text-slate-900">日本語</span>
+      </div>
+
+      <div class="px-6 py-3.5 bg-white border border-slate-200 rounded-2xl shadow-sm flex items-center gap-3 hover:border-primary transition-colors cursor-default group">
+        <img class="flag-img" src="https://flagcdn.com/w40/br.png" alt="Brazil flag"/>
+        <span class="font-black text-slate-600 group-hover:text-slate-900">Português</span>
+      </div>
+
+      <div class="px-6 py-3.5 bg-white border border-slate-200 rounded-2xl shadow-sm flex items-center gap-3 hover:border-accent-teal transition-colors cursor-default group">
+        <img class="flag-img" src="https://flagcdn.com/w40/in.png" alt="India flag"/>
+        <span class="font-black text-slate-600 group-hover:text-slate-900">हिन्दी</span>
+      </div>
+
+      <div class="px-6 py-3.5 bg-white border border-slate-200 rounded-2xl shadow-sm flex items-center gap-3 hover:border-accent-pink transition-colors cursor-default group">
+        <img class="flag-img" src="https://flagcdn.com/w40/kr.png" alt="Korea flag"/>
+        <span class="font-black text-slate-600 group-hover:text-slate-900">한국어</span>
+      </div>
+
+      <div class="px-6 py-3.5 bg-white border border-slate-200 rounded-2xl shadow-sm flex items-center gap-3 hover:border-primary transition-colors cursor-default group">
+        <img class="flag-img" src="https://flagcdn.com/w40/cn.png" alt="China flag"/>
+        <span class="font-black text-slate-600 group-hover:text-slate-900">中文</span>
+      </div>
+
+      <div class="px-6 py-3.5 bg-primary/5 border border-primary/20 rounded-2xl shadow-sm flex items-center gap-3 cursor-default">
+        <span class="font-black text-primary">+40 more</span>
+      </div>
+
+    </div>
+    <div class="mt-20 relative">
+      <div class="w-full h-80 bg-slate-50 rounded-[3rem] flex items-center justify-center overflow-hidden border border-slate-100 shadow-xl relative">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent"></div>
+        <div class="relative z-10 flex flex-col items-center">
+          <div class="size-20 rounded-full bg-white flex items-center justify-center mb-6 border border-slate-100 shadow-lg shadow-primary/10">
+            <span class="material-symbols-outlined text-5xl text-primary animate-pulse">public</span>
+          </div>
+          <p class="font-black text-2xl text-slate-900 tracking-tight">Serving clients in 120+ countries</p>
+          <p class="text-slate-500 mt-2 font-medium">Over 50 million messages processed monthly</p>
+          <div class="mt-6 flex items-center gap-2 px-5 py-2 bg-white rounded-full border border-slate-200 shadow-sm">
+            <span class="material-symbols-outlined text-accent-teal text-sm">credit_card</span>
+            <p class="text-xs font-black text-slate-600">Local payment methods supported in every market</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Pricing -->
+<section class="py-24 px-6 bg-slate-50" id="pricing">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-20">
+      <h2 class="text-4xl md:text-5xl font-black mb-6 tracking-tight text-slate-900">Simple, Transparent Pricing</h2>
+      <p class="text-lg text-slate-600 font-medium">Choose the plan that fits your business stage.</p>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="bg-white p-10 rounded-[2rem] border border-slate-200 flex flex-col hover:border-primary/50 transition-all hover:shadow-lg">
+        <h4 class="text-lg font-black mb-3 text-slate-400">Starter</h4>
+        <div class="text-4xl font-black mb-8 text-slate-900">$49<span class="text-sm font-bold text-slate-400">/mo</span></div>
+        <ul class="space-y-5 mb-10 text-sm flex-1 font-bold text-slate-600">
+          <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary font-black text-lg">check_circle</span> 100 Conversations</li>
+          <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary font-black text-lg">check_circle</span> Concierge Agent</li>
+          <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary font-black text-lg">check_circle</span> Web &amp; SMS</li>
+          <li class="flex items-center gap-3 text-slate-300 line-through"><span class="material-symbols-outlined text-sm">close</span> Recall Agent</li>
+        </ul>
+        <button class="w-full py-4 border-2 border-primary text-primary font-black rounded-2xl hover:bg-primary hover:text-white transition-all uppercase tracking-widest text-xs">Get Started</button>
+      </div>
+      <div class="bg-white p-10 rounded-[2rem] border-4 border-primary relative flex flex-col transform lg:-translate-y-6 shadow-2xl">
+        <div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-primary to-primary-vibrant text-white text-[10px] font-black uppercase tracking-[0.2em] px-6 py-2 rounded-full shadow-lg">Most Popular</div>
+        <h4 class="text-lg font-black mb-3 text-primary">Pro</h4>
+        <div class="text-4xl font-black mb-8 text-slate-900">$99<span class="text-sm font-bold text-slate-400">/mo</span></div>
+        <ul class="space-y-5 mb-10 text-sm flex-1 font-bold text-slate-600">
+          <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary font-black text-lg">check_circle</span> 500 Conversations</li>
+          <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary font-black text-lg">check_circle</span> Concierge + Recall Agent</li>
+          <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary font-black text-lg">check_circle</span> WhatsApp &amp; Instagram</li>
+          <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary font-black text-lg">check_circle</span> Custom Voice Training</li>
+        </ul>
+        <button class="w-full py-4 bg-primary text-white rounded-2xl font-black hover:scale-105 transition-all shadow-lg shadow-primary/20 uppercase tracking-widest text-xs">Get Started</button>
+      </div>
+      <div class="bg-white p-10 rounded-[2rem] border border-slate-200 flex flex-col hover:border-primary/50 transition-all hover:shadow-lg">
+        <h4 class="text-lg font-black mb-3 text-slate-400">Business</h4>
+        <div class="text-4xl font-black mb-8 text-slate-900">$199<span class="text-sm font-bold text-slate-400">/mo</span></div>
+        <ul class="space-y-5 mb-10 text-sm flex-1 font-bold text-slate-600">
+          <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary font-black text-lg">check_circle</span> 2000 Conversations</li>
+          <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary font-black text-lg">check_circle</span> All 3 AI Agents</li>
+          <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary font-black text-lg">check_circle</span> Advanced Analytics</li>
+          <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary font-black text-lg">check_circle</span> Multi-location Support</li>
+        </ul>
+        <button class="w-full py-4 border-2 border-primary text-primary font-black rounded-2xl hover:bg-primary hover:text-white transition-all uppercase tracking-widest text-xs">Get Started</button>
+      </div>
+      <div class="bg-white p-10 rounded-[2rem] border border-slate-200 flex flex-col hover:border-primary/50 transition-all hover:shadow-lg">
+        <h4 class="text-lg font-black mb-3 text-slate-400">Enterprise</h4>
+        <div class="text-4xl font-black mb-8 text-slate-900">Custom</div>
+        <ul class="space-y-5 mb-10 text-sm flex-1 font-bold text-slate-600">
+          <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary font-black text-lg">check_circle</span> Unlimited Conversations</li>
+          <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary font-black text-lg">check_circle</span> Full API Access</li>
+          <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary font-black text-lg">check_circle</span> Dedicated Manager</li>
+          <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary font-black text-lg">check_circle</span> 99.9% Uptime SLA</li>
+        </ul>
+        <button class="w-full py-4 bg-slate-900 text-white rounded-2xl font-black hover:bg-slate-800 transition-all uppercase tracking-widest text-xs">Contact Sales</button>
+      </div>
+    </div>
+    <!-- Extended: FAQ teaser -->
+    <div class="mt-16 text-center">
+      <p class="text-slate-500 font-medium text-sm">All plans include a <span class="font-black text-slate-900">14-day free trial</span> and <span class="font-black text-slate-900">no setup fees</span>. Cancel anytime. &nbsp;<a href="#" class="text-primary font-black underline underline-offset-2">See full feature comparison →</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ── NEW: FAQ Section ────────────────────────────────────────── -->
+<section class="py-24 px-6 bg-white border-t border-slate-100">
+  <div class="max-w-3xl mx-auto">
+    <div class="mb-16 text-center">
+      <h2 class="text-4xl md:text-5xl font-black mb-6 tracking-tight text-slate-900">Frequently Asked Questions</h2>
+    </div>
+    <div class="space-y-4" id="faq">
+      <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-8 cursor-pointer open:border-primary open:bg-white transition-all">
+        <summary class="flex items-center justify-between font-black text-slate-900 text-base list-none">
+          Do I need a website to use ConciergeAI?
+          <span class="material-symbols-outlined text-slate-400 group-open:text-primary group-open:rotate-45 transition-all">add</span>
+        </summary>
+        <p class="mt-5 text-slate-600 font-medium leading-relaxed text-sm">No. Our Zero-Presence onboarding builds your entire digital footprint through a simple WhatsApp or phone conversation. We create your booking page, collect your services and prices, and deploy your AI agent — all in under 60 seconds.</p>
+      </details>
+      <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-8 cursor-pointer open:border-primary open:bg-white transition-all">
+        <summary class="flex items-center justify-between font-black text-slate-900 text-base list-none">
+          Which languages does ConciergeAI support?
+          <span class="material-symbols-outlined text-slate-400 group-open:text-primary group-open:rotate-45 transition-all">add</span>
+        </summary>
+        <p class="mt-5 text-slate-600 font-medium leading-relaxed text-sm">We support 50+ languages natively — not via translation. This includes regional dialects like Yoruba, Tagalog, Tamil, and Gulf Arabic, with correct grammar and cultural tone. Your AI automatically detects the customer's language and responds in kind.</p>
+      </details>
+      <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-8 cursor-pointer open:border-primary open:bg-white transition-all">
+        <summary class="flex items-center justify-between font-black text-slate-900 text-base list-none">
+          How does billing work for international businesses?
+          <span class="material-symbols-outlined text-slate-400 group-open:text-primary group-open:rotate-45 transition-all">add</span>
+        </summary>
+        <p class="mt-5 text-slate-600 font-medium leading-relaxed text-sm">We support local payment methods including M-Pesa, GCash, PIX, UPI, and all major cards via Stripe. Invoices are issued in your local currency where available.</p>
+      </details>
+      <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-8 cursor-pointer open:border-primary open:bg-white transition-all">
+        <summary class="flex items-center justify-between font-black text-slate-900 text-base list-none">
+          Can I switch plans or cancel at any time?
+          <span class="material-symbols-outlined text-slate-400 group-open:text-primary group-open:rotate-45 transition-all">add</span>
+        </summary>
+        <p class="mt-5 text-slate-600 font-medium leading-relaxed text-sm">Yes. Upgrade, downgrade, or cancel with a single message to your AI — no forms, no phone calls. Your data is yours and can be exported at any time.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="py-32 px-6 bg-white text-slate-900 relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent-pink/5 -z-10"></div>
+  <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
+  <div class="max-w-4xl mx-auto text-center space-y-10">
+    <h2 class="text-5xl lg:text-7xl font-black tracking-tight leading-[1.1]">Ready to stop missing revenue?</h2>
+    <p class="text-2xl text-slate-600 font-medium leading-relaxed">Join 2,500+ service businesses transforming their operations with AI. No credit card required.</p>
+    <div class="flex flex-col sm:flex-row justify-center gap-6 pt-6">
+      <button class="h-16 px-12 bg-primary text-white rounded-2xl font-black text-xl hover:scale-105 transition-all shadow-xl shadow-primary/20 flex items-center justify-center">Start Your Free Trial</button>
+      <button class="h-16 px-12 border-2 border-slate-200 bg-white text-slate-900 rounded-2xl font-black text-xl hover:bg-slate-50 transition-all flex items-center justify-center">Talk to an Expert</button>
+    </div>
+    <div class="pt-12 flex flex-col sm:flex-row items-center justify-center gap-10 text-slate-400 text-sm font-black uppercase tracking-widest">
+      <div class="flex items-center gap-3"><span class="material-symbols-outlined text-primary font-black">verified_user</span> 14-day free trial</div>
+      <div class="flex items-center gap-3"><span class="material-symbols-outlined text-accent-pink font-black">bolt</span> No setup fees</div>
+      <div class="flex items-center gap-3"><span class="material-symbols-outlined text-accent-teal font-black">chat_bubble</span> 24/7 Support</div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-slate-50 py-24 px-6 border-t border-slate-200">
+  <div class="max-w-7xl mx-auto grid gap-12 lg:gap-24 md:grid-cols-4">
+    <div class="col-span-1 md:col-span-1 space-y-8">
+      <div class="flex items-center gap-3">
+        <div class="size-10 bg-primary rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary/20">
+          <span class="material-symbols-outlined text-2xl font-bold">rocket_launch</span>
+        </div>
+        <h2 class="text-2xl font-black tracking-tight text-slate-900">ConciergeAI</h2>
+      </div>
+      <p class="text-base text-slate-500 font-medium leading-relaxed">The 'Zero-to-Automated' platform for every service business on earth. Transforming operations with artificial intelligence that feels human, acts fast, and grows revenue.</p>
+    </div>
+    <div>
+      <h5 class="text-sm font-black uppercase tracking-widest text-slate-900 mb-8">Product</h5>
+      <ul class="space-y-5 text-base text-slate-500 font-bold">
+        <li><a class="hover:text-primary transition-colors" href="#">Concierge Agent</a></li>
+        <li><a class="hover:text-primary transition-colors" href="#">Recall Agent</a></li>
+        <li><a class="hover:text-primary transition-colors" href="#">Acquisition Agent</a></li>
+        <li><a class="hover:text-primary transition-colors" href="#">Integrations</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5 class="text-sm font-black uppercase tracking-widest text-slate-900 mb-8">Company</h5>
+      <ul class="space-y-5 text-base text-slate-500 font-bold">
+        <li><a class="hover:text-primary transition-colors" href="#">About</a></li>
+        <li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+        <li><a class="hover:text-primary transition-colors" href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5 class="text-sm font-black uppercase tracking-widest text-slate-900 mb-8">Resources</h5>
+      <ul class="space-y-5 text-base text-slate-500 font-bold">
+        <li><a class="hover:text-primary transition-colors" href="#">Success Stories</a></li>
+        <li><a class="hover:text-primary transition-colors" href="#">Help Center</a></li>
+        <li><a class="hover:text-primary transition-colors" href="#">API Reference</a></li>
+        <li><a class="hover:text-primary transition-colors" href="#">Community</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto mt-24 pt-10 border-t border-slate-200 flex flex-col md:flex-row items-center gap-6 text-xs text-slate-400 font-bold tracking-widest uppercase justify-center text-center">
+    <p>© 2024 ConciergeAI Inc. All rights reserved.</p>
+    <div class="flex gap-10">
+      <a class="hover:text-slate-900 transition-colors" href="#">Privacy Policy</a>
+      <a class="hover:text-slate-900 transition-colors" href="#">Terms of Service</a>
+      <a class="hover:text-slate-900 transition-colors" href="#">Cookie Settings</a>
+    </div>
+  </div>
+</footer>
+</body></html>
